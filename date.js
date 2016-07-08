@@ -99,10 +99,11 @@ $(function(){
 		
 		//上一周
 		$('.prev-week').live('click',function(){
-			// var now = new Date();
-   //          if (initDate.getTime() > now.getTime()) {
-   //          }
-        	initDate.setDate(initDate.getDate() - 7);
-            reload();
+			 var now = new Date();
+             if (initDate.getTime() > now.getTime()) {
+             	initDate.setDate(initDate.getDate() - 7);
+            	reload();
+             }
+        	
 		})
 })
