@@ -5,6 +5,7 @@
 .dateWrap .set-title{height: 41px;line-height: 41px;text-align: center;font-size: 16px;border-bottom: 1px solid #c2c2c2;}
 .dateWrap .set-title .btn{cursor: pointer;color: #58afff;}
 .dateWrap .set-title span{padding: 0 130px;color: #7f7f7f;}
+.dateWrap .set-title .grey{color: #ccc;}
 .dateWrap .date-title{width: 148px;height: 83px;float: left;background: url(./images/date.png) no-repeat 0 0}
 .dateWrap .weekDate{display: block;}
 .dateWrap .weekDate ul{border-top: none;}

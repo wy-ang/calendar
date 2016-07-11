@@ -93,7 +93,7 @@ $(function(){
 		 		overdueTime();
 		   }
 		})
-
+		$('a.prev-week').addClass('grey');
 
 		//过期时间
 		var overdueTime = function(){
