@@ -1,15 +1,30 @@
 *{margin: 0;padding: 0;}
 .hourDate,.motDate,.weekDate,.dateWrap li,.dateWrap li span{display: inline-block;*display: inline;vertical-align: top;*zoom: 1;}
-.dateWrap {width: 900px;font-size: 0;}
-.btn{cursor: pointer;}
-.dateWrap ul{border-top: 1px solid #ccc;border-left: 1px solid #ccc;}
+.dateWrap {width: 945px;height: 656px;font-size: 0;border: 1px solid #c9c9c9;margin:50px}
+.dateWrap .set-title,.dateWrap .weekDate{margin-left:148px;width: 797px;background: #efefef;}
+.dateWrap .set-title{height: 41px;line-height: 41px;text-align: center;font-size: 16px;border-bottom: 1px solid #c2c2c2;}
+.dateWrap .set-title .btn{cursor: pointer;color: #58afff;}
+.dateWrap .set-title span{padding: 0 130px;color: #7f7f7f;}
+.dateWrap .date-title{width: 148px;height: 83px;float: left;background: url(./images/date.png) no-repeat 0 0}
+.dateWrap .weekDate{display: block;}
 .dateWrap .weekDate ul{border-top: none;}
-.dateWrap li{width: 100px;text-align: center;border-right: 1px solid #ccc;border-bottom: 1px solid #ccc;font-size: 15px;font-family: 'Microsoft YaHei'}
-.dateWrap li span{width: 100px;height:24px;border-right: 1px solid #ccc;}
+.dateWrap .weekDate li{width: 113px;height: 40px;line-height: 40px;border-left: 1px solid #ccc;border-bottom: 1px solid #c2c2c2;}
+.dateWrap .weekDate li:first-child{border-left: none}
+.dateWrap .weekDate li span{font-size: 14px;color: #868686;}
+.dateWrap .weekDate li span:first-child{font-size: 16px;color: #363636}
+.dateWrap  li{width: 113px;text-align: center;font-size: 16px;font-family: 'Microsoft YaHei'}
+.dateWrap .hourDate span{width: 113px;height:24px;}
 .dateWrap .hourDate {position: relative;}
-.dateWrap .hourDate ul{margin-left: 30px;}
+.dateWrap .hourDate ul{margin-left: 45px;}
 .dateWrap .hourDate li{width: auto;}
-.dateWrap .hourDate li span.hourpat00,.dateWrap .hourDate li span.hourpat01,.dateWrap .hourDate li span.hourpat02{position: absolute;left: 0; width:30px;height:40px;display: inline-block;padding: 58px 0;border-top: 1px solid #ccc;}
-.dateWrap .motDate,.dateWrap .weekDate{display: block;margin-left: 131px;}
-.dateWrap .title{font-size: 15px;}
-.active{color: #ff3000;}
+.dateWrap .hourDate li span{height: 40px;line-height: 40px;border-left: 1px solid #c2c2c2;border-bottom: 1px solid #c2c2c2;cursor: pointer;}
+.dateWrap .hourDate li span:hover{background: #ffefef;}
+.dateWrap .hourDate li span.week-hour{width: 102px;font-size: 12px;color: #919191;border-left: none;background: #efefef;}
+.dateWrap .hourDate li span.hourpat00,.dateWrap .hourDate li span.hourpat01,.dateWrap .hourDate li span.hourpat02{position: absolute;left: 0; width:44px;height: 44px;line-height:initial;display: inline-block;padding: 80px 0;border-bottom: 1px solid #c2c2c2;border-right: 1px solid #c2c2c2;border-left:none;background: #efefef;}
+.dateWrap .hourDate li span.hourpat00{top:1px;padding: 59px 0}
+.dateWrap .hourDate li span.hourpat01{top:164px;}
+.dateWrap .hourDate li span.hourpat02{top:369px;}
+.dateWrap .weekDate li .active{color: #ff3f3f;}
+.dateWrap li span.disabled,.dateWrap li span.disabled:hover{background: url(./images/disabled.png) no-repeat center center;cursor: auto;}
+.dateWrap li span.selected,.dateWrap li span.selected:hover{background: url(./images/selected.png) no-repeat center center;}
+.dateWrap li span.have,.dateWrap li span.have:hover{background: url(./images/have.png) no-repeat center center;}
