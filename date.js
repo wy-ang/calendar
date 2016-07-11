@@ -88,33 +88,32 @@ $(function(){
 		$('.prev-week').live('click',function(){
 			 var now = new Date();
            if (initDate.getTime() > now.getTime()) {
-					 }
            		initDate.setDate(initDate.getDate() - 7);
           		reload();
-					 overdueTime();
+		 		overdueTime();
+		   }
 		})
 
 
 		//过期时间
-		initDate.setDate(initDate.getDate() + 7);
 		var overdueTime = function(){
 			for (var w = 0; w < 7; w++){
 				var nowDate = new Date();
-				// var nowYear = nowDate.getFullYear();
-				// var nowMon = nowDate.getMonth() + 1;
-				// var nowDay = nowDate.getDate();
-				// var nowWeek = nowDate.getDay();
-				// var nowHours = nowDate.getHours();
-				// var conDate = $('span[class^="data-date-'+w+'"]');
-				// var conYear = conDate.attr('data-year');
-				// var conMon = conDate.attr('data-month');
-				// var conDay = conDate.attr('data-date');
-				// var tDay = conYear+'/'+conMon+'/'+conDay;
-				// var nDay = nowYear+'/'+nowMon+'/'+nowDay;
-				// && hourTxt[x].substring(0,2) <= nowHours && w <= nowWeek && tDay <= nDay
+				var nowYear = nowDate.getFullYear();
+				var nowMon = nowDate.getMonth() + 1;
+				var nowDay = nowDate.getDate();
+				var nowWeek = nowDate.getDay();
+				var nowHours = nowDate.getHours();
+				var conDate = $('span[class^="data-date-'+w+'"]');
+				var conYear = conDate.attr('data-year');
+				var conMon = conDate.attr('data-month');
+				var conDay = conDate.attr('data-date');
+				var tDay = conYear+'/'+conMon+'/'+conDay;
+				var nDay = nowYear+'/'+nowMon+'/'+nowDay;
+				
 				for (var x = 0;x < 14;x++){
-						if(nowDate.getTime()>initDate.getTime()){
-							$('span[id="week-'+w+'-hour-'+x+'"]').addClass('disabled');
+						if(hourTxt[x].substring(0,2) <= nowHours && w <= nowWeek && tDay <= nDay){
+							$('span[id="week-'+(parseInt(w) - 1)+'-hour-'+x+'"]').addClass('disabled');
 						}
 				}
 			}
