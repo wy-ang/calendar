@@ -14,6 +14,7 @@ $(function(){
 				s,
 				hourEm = '';
 				for (h in hourTxt) {
+					var tDay = new Date(initDate);
 					if(h % 6 == 0){
 						hourEm += '<ul><li><span class="hourpat0'+h/6+'">'+hourPatText[h/6]+'</span>';
 					}else{
@@ -21,7 +22,8 @@ $(function(){
 					}
 					hourEm += '<span class="week-hour">'+hourTxt[h]+'</span>';
 					for(s in weekTxt){
-						hourEm += '<span id="week-'+ s +'-hour-'+ h +'"></span>';
+						hourEm += '<span data="'+(parseInt(tDay.getDate()) - 1)+'" hour = "'+(parseInt(hourTxt[h]))+'"></span>';
+						tDay.setDate(tDay.getDate() + 1);
 					}
 					hourEm += '</li></ul>';
 				};
@@ -67,6 +69,8 @@ $(function(){
 				};
 				myDate.setDate(myDate.getDate() + 1);
 			};
+			//给上一周添加样式
+			initDate.getTime()< new Date().getTime() ? $('a.prev-week').addClass('grey') : $('a.prev-week').removeClass('grey');
 		}
 
 		//加载日期
@@ -90,44 +94,41 @@ $(function(){
            if (initDate.getTime() > now.getTime()) {
            		initDate.setDate(initDate.getDate() - 7);
           		reload();
-		 		overdueTime();
+		 					overdueTime();
 		   }
 		})
-		$('a.prev-week').addClass('grey');
+
 
 		//过期时间
 		var overdueTime = function(){
-			for (var w = 0; w < 7; w++){
 				var nowDate = new Date();
-				var nowYear = nowDate.getFullYear();
-				var nowMon = nowDate.getMonth() + 1;
-				var nowDay = nowDate.getDate();
-				var nowWeek = nowDate.getDay();
-				var nowHours = nowDate.getHours();
-				var conDate = $('span[class^="data-date-'+w+'"]');
-				var conYear = conDate.attr('data-year');
-				var conMon = conDate.attr('data-month');
-				var conDay = conDate.attr('data-date');
-				var tDay = conYear+'/'+conMon+'/'+conDay;
-				var nDay = nowYear+'/'+nowMon+'/'+nowDay;
-				
-				for (var x = 0;x < 14;x++){
-						if(hourTxt[x].substring(0,2) <= nowHours && w <= nowWeek && tDay <= nDay){
-							$('span[id="week-'+(parseInt(w) - 1)+'-hour-'+x+'"]').addClass('disabled');
+
+				$('span[data][hour]').each(function(){
+						var data = $(this).attr('data');
+						var hour = $(this).attr('hour');
+
+						console.log(nowDate.getDate());
+						if(nowDate.getDate()>data){
+									$(this).addClass('disabled');
 						}
-				}
-			}
+						if(nowDate.getDate()==data){
+								if(hour <= nowDate.getHours()){
+									$(this).addClass('disabled');
+								}
+						}
+				})
 		}
 		overdueTime();
 
-
 		//选中
-		$('span[id^=week][class!="disabled"]').live('click',function(){
+
+		$('span[data][hour][class!="disabled"]').live('click',function(){
 				var _self = $(this);
 				var time = _self.siblings('.week-hour').html();
 
 				console.log(time);
 				_self.addClass('selected');
+
 
 		})
 })
