@@ -13,6 +13,11 @@ $(function(){
 				h,
 				s,
 				hourEm = '';
+				var curDay = initDate.getDay();
+				if(curDay == 0){
+					 curDay = 7;
+				};
+				initDate.setDate(initDate.getDate() - curDay + 1);
 				for (h in hourTxt) {
 					var tDay = new Date(initDate);
 					if(h % 6 == 0){
@@ -22,7 +27,7 @@ $(function(){
 					}
 					hourEm += '<span class="week-hour">'+hourTxt[h]+'</span>';
 					for(s in weekTxt){
-						hourEm += '<span data="'+(parseInt(tDay.getDate()) - 1)+'" hour = "'+(parseInt(hourTxt[h]))+'"></span>';
+						hourEm += '<span data="'+tDay.toLocaleDateString()+'" hour = "'+(parseInt(hourTxt[h]))+'"></span>';
 						tDay.setDate(tDay.getDate() + 1);
 					}
 					hourEm += '</li></ul>';
@@ -69,6 +74,7 @@ $(function(){
 				};
 				myDate.setDate(myDate.getDate() + 1);
 			};
+
 			//给上一周添加样式
 			initDate.getTime()< new Date().getTime() ? $('a.prev-week').addClass('grey') : $('a.prev-week').removeClass('grey');
 		}
@@ -107,16 +113,16 @@ $(function(){
 						var data = $(this).attr('data');
 						var hour = $(this).attr('hour');
 
-						console.log(nowDate.getDate());
-						if(nowDate.getDate()>data){
+						if(nowDate.toLocaleDateString()>data){
 									$(this).addClass('disabled');
 						}
-						if(nowDate.getDate()==data){
+						if(nowDate.toLocaleDateString()==data){
 								if(hour <= nowDate.getHours()){
 									$(this).addClass('disabled');
 								}
 						}
 				})
+
 		}
 		overdueTime();
 
@@ -125,8 +131,8 @@ $(function(){
 		$('span[data][hour][class!="disabled"]').live('click',function(){
 				var _self = $(this);
 				var time = _self.siblings('.week-hour').html();
-
-				console.log(time);
+				var date = _self.attr('data');
+				console.log(date+'/'+time);
 				_self.addClass('selected');
 
 
