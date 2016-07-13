@@ -107,7 +107,6 @@ $(function(){
 		   }
 		})
 
-
 		//过期时间
 		var overdueTime = function(){
 				var nowDate = new Date(),
@@ -127,10 +126,8 @@ $(function(){
 						var nData = nData.match(/[0-9]/g);
 						var nData = nData.join('');
 						var nData = parseInt(nData);
-						console.log(data);
-						console.log(nData);
 
-						if(nData>	data){
+						if(nData>data){
 									$(this).addClass('disabled');
 						}
 						if(nData==data){
@@ -143,15 +140,18 @@ $(function(){
 		}
 		overdueTime();
 
+		//回显
+		var arr = [];
+		var selected = function($this){
+			var time = $this.siblings('.week-hour').html();
+			var date = $this.attr('data');
+			$this.addClass('selected');
+			arr.push(date+'/'+time);
+			console.log(arr);
+		}
 		//选中
-
 		$('span[data][hour][class!="disabled"]').live('click',function(){
-				var _self = $(this);
-				var time = _self.siblings('.week-hour').html();
-				var date = _self.attr('data');
-				console.log(date+'/'+time);
-				_self.addClass('selected');
-
-
+				selected($(this));
 		})
+
 })
