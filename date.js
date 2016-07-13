@@ -27,7 +27,10 @@ $(function(){
 					}
 					hourEm += '<span class="week-hour">'+hourTxt[h]+'</span>';
 					for(s in weekTxt){
-						hourEm += '<span data="'+tDay.toLocaleDateString()+'" hour = "'+(parseInt(hourTxt[h]))+'"></span>';
+						var y = tDay.getFullYear(),
+								m = tDay.getMonth()+1,
+								d = tDay.getDate();
+						hourEm += '<span data="'+y+'/'+(m<10?'0'+m:m)+'/'+(d<10?'0'+d:d)+'" hour = "'+(parseInt(hourTxt[h]))+'"></span>';
 						tDay.setDate(tDay.getDate() + 1);
 					}
 					hourEm += '</li></ul>';
@@ -107,16 +110,30 @@ $(function(){
 
 		//过期时间
 		var overdueTime = function(){
-				var nowDate = new Date();
+				var nowDate = new Date(),
+						y = nowDate.getFullYear(),
+						m = nowDate.getMonth()+1,
+						d = nowDate.getDate();
 
 				$('span[data][hour]').each(function(){
 						var data = $(this).attr('data');
 						var hour = $(this).attr('hour');
 
-						if(nowDate.toLocaleDateString()>data){
+						var data = data.match(/[0-9]/g);
+						var data = data.join('');
+						var data = parseInt(data);
+
+						var nData = y+'/'+(m<10?'0'+m:m)+'/'+(d<10?'0'+d:d);
+						var nData = nData.match(/[0-9]/g);
+						var nData = nData.join('');
+						var nData = parseInt(nData);
+						console.log(data);
+						console.log(nData);
+
+						if(nData>	data){
 									$(this).addClass('disabled');
 						}
-						if(nowDate.toLocaleDateString()==data){
+						if(nData==data){
 								if(hour <= nowDate.getHours()){
 									$(this).addClass('disabled');
 								}
