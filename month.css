@@ -1,0 +1,7 @@
+*{margin: 0;padding: 0;}
+.hourDate,.motDate,.weekDate,.monWrap li{display: inline-block;*display: inline;vertical-align: top;*zoom: 1;}
+.monWrap {width: 949px;height: 306px;font-size: 0;margin:50px}
+.monWrap li{width: 96px;height: 56px;line-height: 56px;text-align: center;font-size: 15px;}
+.monWeek{width: 675px;height: 304px;border: 1px solid #dfdfdf;}
+.monWeekTit {background: #f4f4f4;}
+.monWeekBot li{height: 41px;line-height: 41px;}
