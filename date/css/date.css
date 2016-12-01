@@ -37,7 +37,7 @@
  a.label{display: block;margin-bottom: 5px;}
  .tag{position: relative;bottom: 0;left: 0; display:block;width: 100%;height: auto;line-height: normal;text-align: center; color: #FFF;font-size: 12px; background: #d9534f}
  td span{display: block;}
- .layer{position: absolute;width: 100%;padding: 10px;background: #FFF;border-radius: 5px;border: 1px solid #ccc;z-index: 99999;}
+ .layer{position: absolute;width: 100%;padding: 10px;background: #FFF;border-radius: 5px;border: 1px solid #ccc;z-index: 99999;display: none}
  .layer .label{display: inline-block;margin: 0 5%;width: 40%;float: none;}
  /*.arrow{position: absolute;top: -5px;margin-left: -5px;width: 0;height: 0;border-width: 0 1px 1px;border-style: solid;border-color: transparent;border-bottom-color: #428bca;display: block;z-index: 10000}*/
  .arrow{position: absolute;top: -6px;margin-left: -5px;width: 10px;height: 10px;border-top: 1px solid #ccc;border-left: 1px solid #ccc;display: block;transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-webkit-transform:rotate(45deg);-o-transform:rotate(45deg);background: #FFF;z-index: 10000}
