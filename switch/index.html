@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>date</title>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate.min.js"></script>
+	<script src="js/switch.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<span>李丽丽</span>
+				<button type="button" name="button" id="btnAdd" class="btn btn-primary switch" codeid="1">点赞</button>
+			</div>
+			<div class="col-md-12">
+				<span>李丽丽</span>
+				<button type="button" name="button" id="btnAdd" class="btn btn-primary switch" codeid="1">加好友1</button>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			$('.switch').switch({
+				text:'取消关注'//,
+				//url:'https://raw.githubusercontent.com/wy-ang/once/master/season.json',
+				//add:function(){
+
+				//}
+			});
+		})
+	</script>
+</body>
+</html>
